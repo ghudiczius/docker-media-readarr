@@ -11,7 +11,7 @@
     "datasourceTemplate": "deb"
   }, {
     "customType": "regex",
-    "datasourceTemplate": "github-tags",
+    "datasourceTemplate": "github-releases",
     "depNameTemplate": "Readarr/Readarr",
     "extractVersionTemplate": "^v(?<version>.*)$",
     "fileMatch": [
@@ -21,5 +21,11 @@
       "VERSION: \"(?<currentValue>\\d+\\.\\d+\\.\\d+\\.\\d+)\""
     ],
     "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$"
+  }],
+  "packageRules": [{
+    "matchPackageNames": [
+      "Readarr/Readarr"
+    ],
+    "ignoreUnstable": false
   }]
 }
