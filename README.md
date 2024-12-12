@@ -1,6 +1,6 @@
 # Readarr
 
-Simple docker image for Readarr without any bloat, built on the official mono image. Radarr runs as user `readarr` with `uid` and `gid` `1000` and listens on port `8787`.
+Simple docker image for Readarr without any bloat, built on the official dotnet runtime image. Readarr runs as user `readarr` with `uid` and `gid` `1000` and listens on port `8787`.
 
 ## Usage
 
