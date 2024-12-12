@@ -11,7 +11,7 @@
     "datasourceTemplate": "deb"
   }, {
     "customType": "regex",
-    "datasourceTemplate": "github-releases",
+    "datasourceTemplate": "github-tags",
     "depNameTemplate": "Readarr/Readarr",
     "extractVersionTemplate": "^v(?<version>.*)$",
     "fileMatch": [
