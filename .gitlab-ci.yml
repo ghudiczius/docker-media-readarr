@@ -1,6 +1,6 @@
 variables:
   DOCKER_HUB_IMAGE: "${DOCKER_HUB_USERNAME}/${CI_PROJECT_NAME}"
-  VERSION: "0.4.5.2699"
+  VERSION: "0.4.6.2711"
 
 stages:
 - test
