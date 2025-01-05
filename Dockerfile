@@ -25,4 +25,5 @@ VOLUME /config /downloads /books
 WORKDIR /opt/readarr
 
 EXPOSE 7878
-CMD ["/opt/readarr/Readarr", "-data=/config", "-nobrowser"]
+ENTRYPOINT ["/opt/readarr/Readarr"]
+CMD ["-data=/config", "-nobrowser"]
