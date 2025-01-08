@@ -5,7 +5,7 @@ Simple docker image for Readarr without any bloat, built on the official dotnet 
 ## Usage
 
 ```sh
-docker run --rm registry.gitlab.jmk.hu/media/readarr:<VERSION> \
+docker run --rm ghudiczius/readarr:<VERSION> \
   -p 8787:8787 \
   -v path/to/config:/config \
   -v path/to/downloads:/downloads \
@@ -15,7 +15,7 @@ docker run --rm registry.gitlab.jmk.hu/media/readarr:<VERSION> \
 or
 
 ```sh
-docker run --rm ghudiczius/readarr:<VERSION> \
+docker run --rm registry.gitlab.jmk.hu/media/readarr:<VERSION> \
   -p 8787:8787 \
   -v path/to/config:/config \
   -v path/to/downloads:/downloads \
