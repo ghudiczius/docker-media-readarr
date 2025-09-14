@@ -14,7 +14,7 @@ RUN apk add --no-cache --update \
     addgroup -g 1000 readarr && \
     adduser -D -G readarr -h /opt/readarr -H -s /bin/sh -u 1000 readarr && \
     mkdir /config /downloads /books /opt/readarr && \
-    curl --location --output /tmp/readarr.tar.gz "https://github.com/Readarr/Readarr/releases/download/v${VERSION}/Readarr.${SOURCE_CHANNEL}.${VERSION}.linux-core-x64.tar.gz" && \
+    curl --location --output /tmp/readarr.tar.gz "https://github.com/Readarr/Readarr/releases/download/v${VERSION}/Readarr.${SOURCE_CHANNEL}.${VERSION}.linux-musl-core-x64.tar.gz" && \
     tar xzf /tmp/readarr.tar.gz --directory=/opt/readarr --strip-components=1 && \
     chown --recursive 1000:1000 /config /downloads /books /opt/readarr && \
     rm /tmp/readarr.tar.gz
