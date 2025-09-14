@@ -1,19 +1,18 @@
-FROM mcr.microsoft.com/dotnet/runtime:9.0
+FROM mcr.microsoft.com/dotnet/runtime:10.0-alpine3.22
 
 ARG SOURCE_CHANNEL
 ARG VERSION
 
-# renovate: release=bookworm depName=curl
-ENV CURL_VERSION=7.88.1-10+deb12u14
-# renovate: release=bookworm depName=libsqlite3-0
-ENV LIBSQLITE_VERSION=3.40.1-2+deb12u2
+# renovate: datasource=repology depName=alpine_3_22/curl versioning=loose
+ENV CURL_VERSION=8.14.1-r1
+# renovate: datasource=repology depName=alpine_3_22/sqlite-libs versioning=loose
+ENV SQLITE_LIBS_VERSION=3.49.2-r1
 
-RUN apt-get update && \
-    apt-get --assume-yes --quiet install \
+RUN apk add --no-cache --update \
         curl="${CURL_VERSION}" \
-        libsqlite3-0="${LIBSQLITE_VERSION}" && \
-    groupadd --gid=1000 readarr && \
-    useradd --gid=1000 --home-dir=/opt/readarr --no-create-home --shell /bin/bash --uid 1000 readarr && \
+        sqlite-libs="${SQLITE_LIBS_VERSION}" && \
+    addgroup -g 1000 readarr && \
+    adduser -D -G readarr -h /opt/readarr -H -s /bin/sh -u 1000 readarr && \
     mkdir /config /downloads /books /opt/readarr && \
     curl --location --output /tmp/readarr.tar.gz "https://github.com/Readarr/Readarr/releases/download/v${VERSION}/Readarr.${SOURCE_CHANNEL}.${VERSION}.linux-core-x64.tar.gz" && \
     tar xzf /tmp/readarr.tar.gz --directory=/opt/readarr --strip-components=1 && \
